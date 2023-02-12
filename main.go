@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/cheeeasy2501/auth-id"
+	auth_id_gen "github.com/cheeeasy2501/auth-id/gen/authorization"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -43,19 +43,19 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 }
-
+//TODO: подумать где хранить gw-файлы
 func runRest() {
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	err := auth_id_gen.RegisterGatewayHandlerFromEndpoint(ctx, mux, "localhost:12201", opts)
+	err := auth_id_gen.RegisterAuthorizationServiceHandlerFromEndpoint(ctx, mux, "localhost:12201", opts)
 	if err != nil {
 		panic(err)
 	}
-	log.Printf("server listening at 8081")
-	if err := http.ListenAndServe(":8081", mux); err != nil {
+	log.Printf("server listening at 1000")
+	if err := http.ListenAndServe(":1000", mux); err != nil {
 		panic(err)
 	}
 }

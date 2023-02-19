@@ -1,16 +1,20 @@
-module test
+module github.com/cheeeasy2501/go-gateway
 
-go 1.19
+go 1.20
 
 require (
-	github.com/cheeeasy2501/auth-id v0.0.0-20230212204526-d45c2d3a044a
-	github.com/grpc-ecosystem/grpc-gateway v1.16.0
-	google.golang.org/grpc v1.52.3
+	github.com/labstack/echo/v4 v4.10.0
+	google.golang.org/grpc v1.53.0
 )
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0 // indirect
+	github.com/labstack/gommon v0.4.0 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.16 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasttemplate v1.2.2 // indirect
+	golang.org/x/crypto v0.3.0 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
